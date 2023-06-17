@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fly Shooting Game</title>
+    <style>
+        .game-container {
+            width: 500px;
+            height: 500px;
+            position: relative;
+            border: 1px solid black;
+        }
+        .fly {
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            background-image: url('fly.png');
+            background-size: cover;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Fly Shooting Game</h1>
+
+    <div class="game-container">
+        <?php
+        // Generate random flies
+        $numFlies = 10;
+        for ($i = 1; $i <= $numFlies; $i++) {
+            $top = rand(0, 450);
+            $left = rand(0, 450);
+            echo "<div class='fly' style='top: {$top}px; left: {$left}px;'></div>";
+        }
+        ?>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        // When a fly is clicked, remove it
+        $('.fly').click(function() {
+            $(this).remove();
+        });
+    </script>
+</body>
+</html>
